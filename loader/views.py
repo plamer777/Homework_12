@@ -39,6 +39,10 @@ def post_uploaded():
     post_text = request.form.get('content')
     pic_file = picture.filename
 
+    # If user haven't filled a text field then provide text by default
+    if not post_text:
+        post_text = 'Здесь должен быть какой-то текст'
+
     # If the file was received and has an allowed type then save it and refresh
     # JSON file
     if picture:
